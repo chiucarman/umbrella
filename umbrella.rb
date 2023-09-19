@@ -6,7 +6,7 @@ user_location = gets.chomp.gsub(" ", "%20")
 
 maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user_location + "&key=" + ENV.fetch("GMAPS_KEY")
 
-pp maps_url
+# pp maps_url
 
 require "http"
 
@@ -26,16 +26,17 @@ geo = first_result.fetch("geometry")
 
 loc = geo.fetch("location")
 
-pp latitude = loc.fetch("lat")
-pp longitude = loc.fetch("lng")
+latitude = loc.fetch("lat")
+longitude = loc.fetch("lng")
 
+puts "Your coordinates are #{latitude}, #{longitude}."
 
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
 pirate_weather_api_key = ENV.fetch("PIRATE_WEATHER_KEY")
 
 # Assemble the full URL string by adding the first part, the API token, and the last part together
-pp pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/" + latitude.to_s + "," + longitude.to_s
+pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/" + latitude.to_s + "," + longitude.to_s
 
 # Place a GET request to the URL
 raw_response = HTTP.get(pirate_weather_url)
