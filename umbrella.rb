@@ -33,8 +33,6 @@ pp longitude = loc.fetch("lng")
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
 
-require "http"
-
 # Assemble the full URL string by adding the first part, the API token, and the last part together
 pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/41.8887,-87.6355"
 
