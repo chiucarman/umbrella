@@ -1,8 +1,8 @@
 pp "Where are you located?"
 
-# user_location = gets.chomp
+user_location = gets.chomp.gsub(" ", "%20")
 
-user_location = "Chicago"
+# user_location = "Chicago"
 
 maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user_location + "&key=" + ENV.fetch("GMAPS_KEY")
 
@@ -26,8 +26,8 @@ geo = first_result.fetch("geometry")
 
 loc = geo.fetch("location")
 
-latitude = loc.fetch("lat")
-longitude = loc.fetch("lng")
+pp latitude = loc.fetch("lat")
+pp longitude = loc.fetch("lng")
 
 
 # I've already created a string variable above: pirate_weather_api_key
