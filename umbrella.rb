@@ -14,6 +14,12 @@ resp = HTTP.get(maps_url)
 
 raw_response = resp.to_s
 
+require "json"
+
+parsed_response = JSON.parse(raw_response)
+
+pp parsed_response
+
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
 
