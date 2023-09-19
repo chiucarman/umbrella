@@ -18,7 +18,11 @@ require "json"
 
 parsed_response = JSON.parse(raw_response)
 
-pp parsed_response
+results = parsed_response.fetch("results")
+
+first_result = results.at(0)
+
+pp first_result
 
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
