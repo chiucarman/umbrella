@@ -12,7 +12,7 @@ require "http"
 
 resp = HTTP.get(maps_url)
 
-pp resp
+raw_response = resp.to_s
 
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
