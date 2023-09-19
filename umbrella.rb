@@ -1,12 +1,18 @@
 pp "Where are you located?"
 
-user_location = gets.chomp
+# user_location = gets.chomp
 
-pp user_location
+user_location = Chicago
 
 maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user_location + "&key=" + ENV.fetch("GMAPS_KEY")
 
 pp maps_url
+
+require "http"
+
+resp = HTTP.get(maps_url)
+
+pp resp
 
 # I've already created a string variable above: pirate_weather_api_key
 # It contains sensitive credentials that hackers would love to steal so it is hidden for security reasons.
