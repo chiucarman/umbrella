@@ -48,4 +48,4 @@ currently_hash = parsed_response.fetch("currently")
 
 current_temp = currently_hash.fetch("temperature")
 
-puts "The current temperature is " + current_temp.to_s + "."
+puts "It is currently " + current_temp.to_s + "°F."
